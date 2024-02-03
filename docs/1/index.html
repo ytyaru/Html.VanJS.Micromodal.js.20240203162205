@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+dialog::backdrop { background-color:#cccccccc; }
+</style>
+<script src="../lib/micromodal/0.4.10/min.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', async(event) => {
+    for (const dialog of document.querySelectorAll(`dialog`)) {
+        const closeButton = dialog.querySelector(`header button[data-close]`)
+        if (!closeButton) { continue }
+        closeButton.addEventListener('click', async(event) => { dialog.close() })
+    }
+    for (const button of document.querySelectorAll(`button[data-open]`)) {
+        const id = button.getAttribute('data-open')
+        button.addEventListener('click', async(event) => { document.querySelector(`#${id}`).showModal() })
+    }
+})
+</script>
+</head>
+<body>
+
+<button data-open="dialog-1">ダイアログを開く</button>
+<dialog id="dialog-1">
+<header><h1 style="display:inline;">ダイアログの表題</h1><button data-close>✖</button></header>
+<main><p>ダイアログの本文</p></main>
+</dialog>
+
+</body>

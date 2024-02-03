@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<meta name="description" content="">
+<meta name="author" content="ytyaru">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja">
+<link rel="icon" href="asset/image/author/ytyaru.png">
+<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+    font-size:max(16px, calc(100vw / 45));
+    line-height:1.7em;
+    letter-spacing:0.05em;
+    color:#000;
+    background-color:#ddd;
+    font-family: 'Noto Serif JP', 'Source Han Serif JP', 'Noto Color Emoji', serif; 
+}
+h1,h2,h3,h4,h5,h6,th,label,caption,legend,code { font-family: 'Noto Sans JP', 'Source Han Sans JP', 'Noto Color Emoji', sans-serif; }
+em {
+    font-style: normal; /* 非イタリック化 */
+    text-emphasis: var(--em-style) var(--em-color);
+    -webkit-text-emphasis: var(--em-style) var(--em-color);
+}
+
+</style>
+<script type="text/javascript" src="lib/van/1.2.6/nomodule.min.js"></script>
+<script src="js/footer.js"></script>
+<script>
+const {h1,p,br,ol,li,footer,small,time,a,img} = van.tags
+window.addEventListener('DOMContentLoaded', async(event) => {
+    // 最新版ほどitemsの先頭に配置する。旧版ほど末尾。
+    const items = [
+        'micromodal.js最低限機能+アニメ',
+        'micromodal.js最小',
+        'dialog要素',
+        '標準API',
+    ]
+    const { h1, p, ol, li, a, code } = van.tags
+    const author = 'ytyaru'
+    const ccBySaUrls = ['cc','cc-by','cc-sa'].map(id=>`asset/image/license/${id}.svg`)
+    van.add(document.body, 
+        h1(a({href:`https://github.com/${author}/Html.VanJS.Micromodal.js.20240203162205/`}, 'Micromodal.js')),
+        p('Micromodal.jsを使ってみる。'),
+//        p('Try using Micromodal.js.'),
+        makeMenu(),
+        new Footer().make(),
+    )
+    function makeMenu() { return ol({start:items.length-1, reversed:true},
+        //ol({start:0},
+            //items.map((item, i)=>li(a({href:()=>`${i}/index.html`}, item)))
+            items.map((item, i)=>li(a({href:()=>`${items.length-(i+1)}/index.html`}, item)))
+            //items.reverse().map((item, i)=>li(a({href:()=>`${i}/index.html`}, item)))
+            //items.reverse().map((item, i)=>li(a({href:()=>`${items.length-(i+1)}/index.html`}, item)))
+        )
+    }
+})
+</script>
+</head>
+<body>
+</body>

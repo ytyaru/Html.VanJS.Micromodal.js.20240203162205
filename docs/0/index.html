@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../lib/van/1.2.6/nomodule.min.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', async(event) => {
+van.add(document.body, 
+  van.tags.button({onclick:e=>alert('OK押下で閉じます。')}, 'alert'),
+  van.tags.button({onclick:e=>confirm('OKならtrue、キャンセルならfalseを返します。')}, 'confirm'),
+  van.tags.button({onclick:e=>prompt('入力したテキストを返します。', '初期値')}, 'prompt'),
+)
+})
+</script>
+</head>
+<body>
+</body>

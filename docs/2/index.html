@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.modal {display: none;}
+.modal.is-open {display: block;}
+</style>
+<script src="../lib/micromodal/0.4.10/min.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', async(event) => {
+MicroModal.init();
+})
+</script>
+</head>
+<body>
+
+<button data-micromodal-trigger="modal-1" role="button">ダイアログを開く</button>
+
+<div id="modal-1" class="modal" aria-hidden="true">
+  <div tabindex="-1" data-micromodal-close>
+    <div role="dialog" aria-modal="true" aria-labelledby="modal-1-title" >
+      <header>
+        <h2 id="modal-1-title">ダイアログの見出し</h2>
+        <button aria-label="Close modal" data-micromodal-close>✖</button>
+      </header>
+      <div id="modal-1-content">
+        <p>ダイアログの本文。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
